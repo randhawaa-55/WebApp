@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import FileUploader from '../components/FileUploader';
 import Button from '../components/Button';
 import LoadingSpinner from '../components/LoadingSpinner';
+import apiClient from '../api/client';
 import './ToolPage.css';
 
 const DocConversionPage = () => {
@@ -61,7 +61,7 @@ const DocConversionPage = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post(`http://localhost:5000/api/convert/${conversionType}`, formData, {
+      const response = await apiClient.post(`/api/convert/${conversionType}`, formData, {
         responseType: 'blob',
         headers: {
           'Content-Type': 'multipart/form-data'

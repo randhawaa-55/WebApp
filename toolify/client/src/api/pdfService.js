@@ -6,7 +6,7 @@ export const splitPDF = async (file, pagesPerSection) => {
   formData.append('pagesPerSection', pagesPerSection);
 
   try {
-    const response = await apiClient.post('/pdf/split', formData);
+    const response = await apiClient.post('/api/pdf/split', formData);
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || 'Failed to split PDF');
@@ -21,7 +21,7 @@ export const mergePDFs = async (files) => {
   });
 
   try {
-    const response = await apiClient.post('/pdf/merge', formData, {
+    const response = await apiClient.post('/api/pdf/merge', formData, {
       responseType: 'blob',
       headers: {
         'Content-Type': 'multipart/form-data'
