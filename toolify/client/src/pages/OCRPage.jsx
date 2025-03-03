@@ -36,12 +36,7 @@ const OCRPage = () => {
     formData.append('language', language);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/convert/ocr', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      
+      const response = await apiClient.post('/api/convert/ocr', formData);
       setExtractedText(response.data.text);
     } catch (error) {
       console.error('Error extracting text:', error);

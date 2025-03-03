@@ -48,12 +48,12 @@ app.use('/api/', apiLimiter);
 
 // CORS configuration
 const corsOptions = {
-    origin: [
-        'https://toolifye.online',
-        'http://localhost:3000' // For local development
-    ],
+    origin: process.env.NODE_ENV === 'production' 
+      ? ['https://toolifye.online']
+      : ['http://localhost:3000'], // For local development
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
 };
 app.use(cors(corsOptions));
 

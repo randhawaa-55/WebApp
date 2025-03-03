@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import FileUploader from '../components/FileUploader';
 import Button from '../components/Button';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { mergePDFs } from '../api/pdfService';
 import './ToolPage.css';
 
 const PDFMergePage = () => {
@@ -26,18 +26,8 @@ const PDFMergePage = () => {
     setIsProcessing(true);
     setError(null);
     
-    const formData = new FormData();
-    files.forEach(file => {
-      formData.append('files', file);
-    });
-
     try {
-      const response = await axios.post('http://localhost:5000/api/pdf/merge', formData, {
-        responseType: 'blob',
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
+      const response = await mergePDFs(files);
       
       // Create a download link
       const url = window.URL.createObjectURL(new Blob([response.data]));
