@@ -69,6 +69,15 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/api/pdf', pdfRoutes);
 app.use('/api/convert', conversionRoutes);
 app.use('/api/image', imageRoutes);
+app.use('/api/pdf/merge', pdfMergeRoutes);
+app.use('/api/pdf/split', pdfSplitRoutes);
+app.use('/api/pdf/compress', pdfCompressRoutes);
+app.use('/api/pdf/unlock', pdfUnlockRoutes);
+app.use('/api/pdf/lock', pdfLockRoutes);
+app.use('/api/pdf/rotate', pdfRotateRoutes);
+app.use('/api/pdf/watermark', pdfWatermarkRoutes);
+app.use('/api/convert/ocr', pdfOcrRoutes);
+
 
 // Simple health check route
 app.get('/api/health', (req, res) => {
