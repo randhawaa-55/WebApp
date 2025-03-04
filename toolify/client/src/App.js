@@ -9,6 +9,8 @@ import ImageConvertPage from './pages/ImageConvertPage';
 import ImageToPdfPage from './pages/ImageToPdfPage';
 import DocConversionPage from './pages/DocConversionPage';
 import OCRPage from './pages/OCRPage';
+import ContactUs from './pages/ContactUs';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import './App.css';
 
 // Create a PDF Tools category page
@@ -85,6 +87,8 @@ function App() {
           <Route path="/conversion-tools" element={<ConversionToolsPage />} />
           <Route path="/conversion-tools/documents" element={<DocConversionPage />} />
           <Route path="/conversion-tools/ocr" element={<OCRPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           {/* Add more routes for other tools as they are implemented */}
           <Route path="*" element={<NotFound />} />
         </Routes>

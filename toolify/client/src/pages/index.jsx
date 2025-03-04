@@ -68,8 +68,8 @@ export default function Home() {
       </Head>
       
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-8">Toolify</h1>
-        
+      <img src="/logo.svg" alt="Toolify Logo" className="mx-auto mb-8" />
+
         <ToolSelector onSelect={handleToolSelect} selectedTool={selectedTool} />
         
         {selectedTool && (
