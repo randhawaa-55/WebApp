@@ -1,0 +1,42 @@
+.about-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.about-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about-page h2 {
+  font-size: 1.8em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.about-page p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-page ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.about-page li {
+  margin-bottom: 5px;
+}
+
+.about-page .about-intro,
+.about-page .about-team,
+.about-page .about-values,
+.about-page .about-goals,
+.about-page .about-mission,
+.about-page .about-vision {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+} 

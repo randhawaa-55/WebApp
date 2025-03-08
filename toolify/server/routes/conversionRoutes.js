@@ -187,17 +187,26 @@ router.post('/word-to-pdf', upload.single('file'), async (req, res) => {
       // Try using LibreOffice for conversion (production method)
       try {
         // Check if LibreOffice is installed
-        await exec('which soffice');
+        const whichResult = await exec('which soffice');
+        console.log('LibreOffice path:', whichResult.stdout.trim());
         
         // Use LibreOffice for conversion
         const cmd = `soffice --headless --convert-to pdf --outdir "${path.dirname(outputPath)}" "${filePath}"`;
-        await exec(cmd);
+        console.log('Running LibreOffice command:', cmd);
+        
+        const { stdout, stderr } = await exec(cmd);
+        
+        if (stdout) console.log('LibreOffice stdout:', stdout);
+        if (stderr) console.error('LibreOffice stderr:', stderr);
         
         // LibreOffice saves with the same name but .pdf extension
         const libreOfficePath = path.join(
           path.dirname(outputPath),
           path.basename(filePath, path.extname(filePath)) + '.pdf'
         );
+        
+        console.log('Expected output path:', libreOfficePath);
+        console.log('File exists?', fs.existsSync(libreOfficePath));
         
         // Rename to our desired output path if needed
         if (libreOfficePath !== outputPath && fs.existsSync(libreOfficePath)) {
@@ -215,7 +224,7 @@ router.post('/word-to-pdf', upload.single('file'), async (req, res) => {
           safeDeleteFile(filePath);
         });
       } catch (libreOfficeError) {
-        console.log('LibreOffice not available or conversion failed:', libreOfficeError.message);
+        console.error('LibreOffice not available or conversion failed:', libreOfficeError.message);
         // Continue to fallback methods
       }
     } else {
@@ -330,7 +339,7 @@ router.post('/excel-to-pdf', upload.single('file'), async (req, res) => {
       
       console.log('Successfully converted Excel to PDF using LibreOffice');
     } catch (libreOfficeError) {
-      console.log('LibreOffice not available or conversion failed:', libreOfficeError.message);
+      console.error('LibreOffice not available or conversion failed:', libreOfficeError.message);
       
       // Create a placeholder PDF as fallback
       const pdfDoc = await PDFDocument.create();

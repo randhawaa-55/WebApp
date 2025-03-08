@@ -10,6 +10,7 @@ import ImageToPdfPage from './pages/ImageToPdfPage';
 import DocConversionPage from './pages/DocConversionPage';
 import OCRPage from './pages/OCRPage';
 import ContactUs from './pages/ContactUs';
+import About from './pages/About';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import './App.css';
 
@@ -89,6 +90,8 @@ function App() {
           <Route path="/conversion-tools/ocr" element={<OCRPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/about" element={<About />} />
+
           {/* Add more routes for other tools as they are implemented */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -31,7 +31,8 @@ const Layout = ({ children }) => {
             <li><Link to="/image-tools">Image Tools</Link></li>
             <li><Link to="/conversion-tools">Conversion Tools</Link></li>
             <li><Link to="/contact-us">Contact Us</Link></li>
-            <li><Link to="/privacy-policy">Privacy</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/about">About Us</Link></li>
           </ul>
         </nav>
       </header>

@@ -1,0 +1,29 @@
+.privacy-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.privacy-page h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.privacy-page h2 {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.privacy-page p {
+  margin-bottom: 15px;
+}
+
+.privacy-page ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.privacy-page li {
+  margin-bottom: 5px;
+} 
